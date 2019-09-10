@@ -25,6 +25,21 @@ I took all the data from [A-Z Lyrics](https://www.azlyrics.com/). Dataset includ
 |Runaway| LYRICS...|2|
 |...|...|...|
 
+# Scraping
+You must use [A-Z Lyrics](https://www.azlyrics.com/) naming convention while scraping.<br/>
+<br/>
+:x: The Clash<br/>
+:heavy_check_mark: clash
+
+:x: AC/DC<br/>
+:heavy_check_mark: acdc
+
+:x: Green Day<br/>
+:heavy_check_mark: greenday
+
+:x: beyonce<br/>
+:heavy_check_mark: knowles
+
 # Analysis
 
 ### Output
@@ -34,6 +49,6 @@ Pie chart shows us the most used 10 words for a single artist or genre with thei
 <img src="https://user-images.githubusercontent.com/45638465/64608864-41160380-d3d4-11e9-8d2f-ca685fa6f70b.png" width="324">
 <img src="https://user-images.githubusercontent.com/45638465/64609007-9baf5f80-d3d4-11e9-8d77-359d2b7847b4.png" width="324">
 #### 2. Bar Chart
-Bar chart shows us the most use 20 words for a single artist or genre with their number of usage.
+Bar chart shows us the most used 20 words for a single artist or genre with their number of usage.
 <img src="https://user-images.githubusercontent.com/45638465/64609062-b2ee4d00-d3d4-11e9-99e0-3dd9f591beca.png" width="324">
 <img src="https://user-images.githubusercontent.com/45638465/64609063-b386e380-d3d4-11e9-9608-68783f4c172f.png" width="324">
