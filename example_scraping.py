@@ -1,17 +1,23 @@
+import mysql.connector
 from web_scraping import Scrape
 
-chrome_driver = "::/"  # Chrome Driver filepath for webdriver
-mysql_user = "root"  # MySQL username
-mysql_passwd = ""  # MySQL password
-mysql_db = "test"  # MySQL database
+
+db = mysql.connector.connect(
+                host="localhost",
+                user="root",		# MySQL username
+                passwd="",		# MySQL password
+                database="test" 	# Database name
+            )
+
+chrome_driver = "::/"  # Chrome Driver path for webdriver
 
 # Create Scrape object
 
-scraper = Scrape(chrome_driver, mysql_user, mysql_passwd, mysql_db)
+scraper = Scrape(chrome_driver, db)
 
 # Scrape example using single artist
 
-scraper.withArtist("greenday", "punk")
+scraper.scrape_artist("greenday", "punk")
 
 # Scrape example using a dictionary
 
@@ -24,4 +30,4 @@ example_dict = {
     ]
 }
 
-scraper.withDictionary(example_dict)
+scraper.scrape_dictionary(example_dict)

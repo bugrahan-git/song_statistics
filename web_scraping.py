@@ -4,7 +4,6 @@ import random
 import requests
 import traceback
 from lxml import html
-import mysql.connector
 from selenium import webdriver
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup, Comment
@@ -38,15 +37,10 @@ create_tables = [
 
 class Scrape:
 
-    def __init__(self, path, user, passwd, database):
+    def __init__(self, path, db):
         try:
             self.driver = webdriver.Chrome(path)
-            self.db = mysql.connector.connect(
-                host="localhost",
-                user=user,
-                passwd=passwd,
-                database=database
-            )
+            self.db = db
             self.dbCursor = self.db.cursor()
             for i in create_tables:
                 self.dbCursor.execute(i)
@@ -54,16 +48,16 @@ class Scrape:
             print(traceback.format_exc())
             sys.exit()
 
-    def withArtist(self, name, genre):
+    def scrape_artist(self, name, genre):
         global artist_name
         url = baseUrl + "/" + name[0] + "/" + name + ".html"
         artist_name = name
         self.__getSongs(self.__getLinks(url), genre)
 
-    def withDictionary(self, dictionary):
+    def scrape_dictionary(self, dictionary):
         for genre in dictionary:
             for artist in dictionary[genre]:
-                self.withArtist(artist, genre)
+                self.scrape_artist(artist, genre)
 
     def __getLinks(self, url):
         songs = dict()
